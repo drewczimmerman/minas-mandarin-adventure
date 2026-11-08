@@ -11,7 +11,7 @@ const av=(eq,sc)=>`<canvas class="pc" data-av width="32" height="32" style="widt
 const px=(e,s)=>`<canvas class="pxe" data-e="${e}" width="24" height="24" style="width:${s}px;height:${s}px"></canvas>`;
 const AUD={title:new Audio("audio/theme-song.mp3"),game:new Audio("audio/game-music.mp3"),quest:new Audio("audio/quest-song.mp3")};const VOL={title:.29,game:.29,quest:.13};let TK="",UL=0;
 Object.values(AUD).forEach(a=>{a.loop=true;a.volume=.45;a.preload="auto"});
-function fade(a,to,done){clearInterval(a._f);a._f=setInterval(()=>{const d=to-a.volume;if(Math.abs(d)<.06){a.volume=to;clearInterval(a._f);done&&done()}else a.volume=Math.max(0,Math.min(1,a.volume+Math.sign(d)*.06))},40)}
+function fade(a,to,done){clearInterval(a._f);const v0=a.volume;let i=0;a._f=setInterval(()=>{i++;a.volume=v0+(to-v0)*i/10;if(i>=10){clearInterval(a._f);a.volume=to;done&&done()}},40)}
 function music(n){TK=n;if(!UL)return;for(const k in AUD){const a=AUD[k];if(k===n&&!S.mute){if(a.paused){a.volume=0;a.play().catch(()=>{})}fade(a,VOL[k])}else if(!a.paused)fade(a,0,()=>a.pause())}}
 addEventListener("pointerdown",()=>{if(UL)return;UL=1;for(const k in AUD){const a=AUD[k];a.play().then(()=>{if(!(k===TK&&!S.mute))a.pause()}).catch(()=>{})}});
 function mute(){S.mute=!S.mute;save();music(TK);R()}
