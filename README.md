@@ -20,4 +20,4 @@ Everything is data in `js/data.js`: words in `W` (`character|pinyin|emoji|theme|
 - If you change files, bump `V` in `sw.js` so installed copies refresh.
 
 ## Retro edition
-Pixel-art UI based on `assets/mmi-logo.png`; overworld has scrolling camera and code-drawn pixel sprites (`js/world.js`). Music: `audio/theme-song.mp3` (title) and `audio/game-music.mp3` (everywhere else); 🎵 mutes. Dialogue lines live in `DLG` in `js/data.js` (`English|中文|pinyin`). The second room costs 60 coins.
+Pixel-art UI based on `assets/mmi-logo.png`; overworld has scrolling camera and code-drawn pixel sprites (`js/world.js`). Music: `audio/theme-song.mp3` (title) `audio/quest-song.mp3` (word-matching screens) and `audio/game-music.mp3` (everywhere else); tracks crossfade; 🎵 mutes. Dialogue lines live in `DLG` in `js/data.js` (`English|中文|pinyin`). The second room costs 60 coins.
