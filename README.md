@@ -21,3 +21,9 @@ Everything is data in `js/data.js`: words in `W` (`character|pinyin|emoji|theme|
 
 ## Retro edition
 Pixel-art UI based on `assets/mmi-logo.png`; overworld has scrolling camera and code-drawn pixel sprites (`js/world.js`). Music: `audio/theme-song.mp3` (title) `audio/quest-song.mp3` (word-matching screens) and `audio/game-music.mp3` (everywhere else); tracks crossfade; 🎵 mutes. Dialogue lines live in `DLG` in `js/data.js` (`English|中文|pinyin`). The second room costs 60 coins.
+
+## Home interior
+The Home door opens a walkable interior (`buildIn` in `js/world.js`): two rooms, floor furniture slots (8 per room) and wall-decoration slots (6 per room). Items come from `furn`, `gar` and `wall` in `js/data.js`; place or remove them from the Decorate screen. Audio uses a single `<audio>` element that swaps tracks, so tracks can never overlap.
+
+## Dragon Island
+Finish the animals, food and nature quests, then sail from the dock at the south end of the path. Island 2 (`I2M` in `js/world.js`) has an Arcade (star-shooter minigame, `arcadeStart` in `js/game.js`), Chinese School, Airport and Library (each runs a vocabulary quest: school, travel, colors) plus six new villagers. Progress and the current island are saved.
